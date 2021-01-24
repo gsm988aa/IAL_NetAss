@@ -6,15 +6,606 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>2006</width>
-    <height>1000</height>
+    <width>1137</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>NetAssist</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/* ================================================ *
+author:lei
+lastedited:2019.8
+* ================================================ */
+/*hover*/
+/*actived*/
+/*gradient start*/
+/*gradient end*/
+QWidget
+{
+    color: #220200;
+    background-color: #FFFFFF;
+}
+
+QFrame{
+    color: #220200;
+    background-color: #FFFFFF;/*不能设置为transparent*/
+}
+QMainWindow::separator{
+    border: 1px solid #999999;
+    border-style: outset;
+    width: 4px;
+    height: 4px;
+}
+QMainWindow::separator:hover{
+    background: #B01B8AFF;
+}
+QSplitter::handle{
+    border: 1px solid #999999;
+    border-style: outset;
+    width: 4px;
+    height: 4px;
+}
+QSplitter::handle:hover{/*splitter-&gt;handle(1)-&gt;setAttribute(Qt::WA_Hover, true);才生效*/
+    border-color: #EA2;
+}
+QSplitter::handle:pressed{
+    border-color: #59F;
+}
+QSizeGrip{
+    background-color: none;
+}
+
+QMenuBar {
+    background-color: #FFFFFF;
+    spacing: 1px;
+    border-bottom: 1px solid #999999;
+}
+
+QMenuBar::item{
+    background: transparent;
+    padding: 1px 8px;
+}
+
+QMenuBar::item:selected{
+    background: #B01B8AFF;
+    border: 1px solid #B01B8AFF;
+}
+
+QMenuBar::item:pressed{
+    background: #59F;
+    border: 1px solid #59F;
+    padding-top: 4px; /*margin-bottom: -4px;*/
+}
+
+QMenu {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    margin: 1px; /* some spacing around the menu */
+    padding: 1px;
+}
+
+QMenu::item{
+    padding: 2px 25px 2px 15px;
+    border: 1px solid transparent;
+    margin: 1px;
+}
+QMenu::icon { 
+    width: 15px;
+    height: 15px;
+    padding:5px;
+    border-right: 1px inset #999999;
+}
+
+QMenu::item:selected {
+    border-color: #999999;
+    background: #B01B8AFF;
+}
+
+QMenu::separator {
+    height: 1px;
+    background: #999999;
+    margin: 0 5px;
+}
+
+QMenu::indicator {/*checked 的√*/
+    width: 13px;
+    height: 13px;
+    padding:2px;
+}
+QMenu::icon:checked { /* appearance of a 'checked' icon */
+    background: #B01B8AFF;
+    border: 1px inset #59F;
+    border-radius: 3px;
+    padding: 2px;
+    /*position: absolute;
+    top: 0px;
+    right: 1px;
+    bottom: 5px;
+    left: 2px;*/
+}
+ 
+QToolBar {
+    background: #FFFFFF;
+    spacing: 1px; /* spacing between items in the tool bar */
+    padding: 1px;
+    border-bottom: 1px solid #999999;
+}
+
+QStatusBar{
+    background: transparent;
+    border-top:1px solid #999999;
+}
+
+QStatusBar::item {
+    margin: 2px 0;
+    border-left: 1px solid #999999;
+}
+
+QStatusBar QLabel{
+    background: transparent;
+    margin: 0  2px;
+}
+
+QStatusBar QPushButton{
+    background: transparent;
+    margin: 0  2px;
+}
+
+QStatusBar QPushButton:hover{
+    background: #B01B8AFF;
+    margin: 0  2px;
+}
+
+/* =============================================== */
+/* Label                                           */
+/* =============================================== */
+QLabel {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 1px;
+}
+
+
+/* A QLabel is a QFrame ... */
+/* A QToolTip is a QLabel ... */
+QToolTip {
+    border: 1px solid #999999;
+    padding: 5px;
+    border-radius: 3px;
+    opacity:210;
+}
+
+/* =============================================== */
+/* TextBox                                         */
+/* =============================================== */
+QLineEdit {
+    background: #FFFFFF;/*不建议设为透明，否则table编辑时会字显示*/
+    selection-background-color: #B01B8AFF;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    border-style: inset;
+    padding: 0 1px;
+}
+
+QLineEdit:hover{
+    border-color: #B01B8AFF;
+}
+QLineEdit:focus{
+    border-color: #EA2;
+}
+/*QLineEdit[readOnly=&quot;true&quot;] { color: gray }*/
+QLineEdit[echoMode=&quot;2&quot;]{
+    lineedit-password-character: 9679;/*字符的ascii码35 88等 */
+}
+
+QLineEdit:read-only {
+    color: lightgray;
+}
+
+QLineEdit:disabled{
+    color: lightgray;
+    background: lightgray;
+}
+
+QTextEdit{
+    selection-background-color:#B01B8AFF;
+    border: 1px solid #999999;
+    border-style: inset;
+}
+QTextEdit:hover{
+    border-color: #B01B8AFF;
+}
+QTextEdit:focus{
+    border-color: #EA2;
+}
+/* =============================================== */
+/* Button                                          */
+/* =============================================== */
+QPushButton {
+    border: 1px solid #999999;
+    border-radius: 8px;
+	 color: #FFFFFF;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, 
+        stop: 0 #2791FF, stop: 0.05 #0D81FF,stop: 0.5 #0D81FF, 
+        stop: 0.9 #2791FF, stop: 1 #2791FF);
+    padding: 1px 4px;
+    min-width: 50px;
+    min-height: 16px;
+}
+
+QPushButton:hover{
+    background-color: #B01B8AFF;
+    border-color: #59F;
+}
+
+QPushButton:pressed
+{
+    border-width: 1px;      
+    background-color: #59F;
+    border-color: #999999;
+}
+
+QPushButton:focus, QPushButton:default {
+    border-color: #999999; /* make the default button prominent */
+}
+
+
+QToolButton,QToolButton:unchecked { /* ToolBar里的按钮和带下拉菜单的按钮 */
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: transparent;
+    margin: 1px;
+}
+QToolButton:checked{
+    background-color: #B01B8AFF;
+    border-color: #59F;
+}
+QToolButton:hover{
+    background-color: #B01B8AFF;
+    border-color: #59F;
+}
+
+QToolButton:pressed,QToolButton:checked:hover{
+    background-color: #59F;
+    border-color: #EA2;
+}
+QToolButton:checked:pressed{
+    background-color: #B01B8AFF;
+}
+
+/* only for MenuButtonPopup */
+QToolButton[popupMode=&quot;1&quot;]{
+    padding-left: 1px;
+    padding-right: 15px; /* make way for the popup button */
+    border: 1px solid #999999;
+    min-height: 15px;
+	 /* only for MenuButtonPopup 
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, 
+        stop: 0 #B01B8AFF2, stop: 0.05 #B01B8AFF3,stop: 0.5 #B01B8AFF3, 
+        stop: 0.9 #B01B8AFF2, stop: 1 #B01B8AFF2);*/
+}
+QToolButton[popupMode=&quot;1&quot;]:hover{
+    background-color: #B01B8AFF;
+    border-color: #59F;
+}
+QToolButton[popupMode=&quot;1&quot;]:pressed{
+    border-width: 1px;
+    background-color: #59F;
+    border-color: #999999;
+}
+QToolButton::menu-button {
+    border: 1px solid #999999;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    width: 16px;
+}
+
+/* =============================================== */
+/* ComboBox                                        */
+/* =============================================== */
+QComboBox{
+    border: 1px solid #999999;
+}
+QComboBox:editable{
+    border-style: inset;
+}
+QComboBox:hover{
+    border-color: #B01B8AFF;
+}
+QComboBox:focus{
+    border-color: #EA2;
+}
+QComboBox:on { /* shift the text when the popup opens */
+    padding-top: 2px;
+    padding-left: 2px;
+}
+QComboBox QAbstractItemView {
+    border: 1px solid #999999;
+    selection-background-color: #B01B8AFF;
+}
+/*QComboBox QAbstractItemView::item {
+    height: 12px;需要设置comboBox.setView(QListView())否则会使用默认的item样式
+}*/
+/* =============================================== */
+/* SpinBox DateTime                                */
+/* =============================================== */
+QSpinBox, QDoubleSpinBox,QDateEdit,QTimeEdit,QDateTimeEdit{
+    border: 1px solid #999999;
+    border-style: inset;
+}
+QSpinBox:hover, QDoubleSpinBox:hover,QDateEdit:hover, QTimeEdit:hover,QDateTimeEdit:hover{
+    border-color: #B01B8AFF;
+}
+QSpinBox:focus, QDoubleSpinBox:focus,QDateEdit:focus,QTimeEdit:focus,QDateTimeEdit:focus{
+    border-color: #EA2;
+}
+
+/* =============================================== */
+/* Slider ProgressBar                              */
+/* =============================================== */
+QProgressBar {
+    border: 1px solid #999999;
+    border-radius: 4px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #EA2;
+    width: 4px;
+    margin: 1px;
+}
+
+QSlider{
+    border: 1px solid transparent;
+}
+QSlider::groove{
+    border: 1px solid #999999;
+    background: #FFFFFF;
+}
+QSlider::handle {/*设置中间的那个滑动的键*/                           
+    border: 1px solid #999999;
+    background: #B01B8AFF;
+}
+QSlider::groove:horizontal {
+    height: 3px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
+    left:5px; right: 5px;
+}
+QSlider::groove:vertical{
+    width: 3px;
+    top: 5px; bottom: 5px;
+}
+QSlider::handle:horizontal{
+    width: 6px;
+    margin: -7px; /* height */
+}
+QSlider::handle:vertical{
+    height: 6px;
+    margin: -7px; /* height */
+}
+QSlider::add-page{/*还没有滑上去的地方*/
+    border: 1px solid #999999;
+    background:#2791FF;
+}
+QSlider::sub-page{/*已经划过的从地方*/                            
+    background: #EA2;
+}
+
+/* =============================================== */
+/* ScrollBar                                       */
+/* =============================================== */
+QScrollBar{
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    padding: 1px;
+    height: 10px;
+    width: 10px;
+}
+QScrollBar:hover{
+    border-color:#B01B8AFF;
+}
+QScrollBar::handle{
+    border-radius: 3px;
+    background: #59F;
+    min-width: 16px;
+    min-height: 16px;
+}
+QScrollBar::handle:hover {
+    background: #EA2;
+}
+QScrollBar::add-line, QScrollBar::sub-line,
+QScrollBar::add-page, QScrollBar::sub-page {
+    width: 0px;
+    background: transparent;
+}
+QScrollArea{
+    border: none;
+}
+/*QScrollArea  QAbstractSlider{
+    border-radius: 0px;
+}*/
+/* =============================================== */
+/* DockWidget                                       */
+/* =============================================== */
+QDockWidget, QDockWidget &gt; QWidget/*not work*/
+{
+    border-color: #999999;/*qt bug*/
+    background: transparent;
+}
+QDockWidget::title {
+    border-bottom: 1px solid #999999;
+    border-style: inset;
+    text-align: left; /* align the text to the left */
+    padding: 6px;
+}
+
+/* =============================================== */
+/* GroupBox                                        */
+/* =============================================== */
+QGroupBox {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 1em;
+    background-color: #FFFFFF;
+} 
+
+
+
+
+/* =============================================== */
+/* ToolBox                                         */
+/* =============================================== */
+QToolBox{
+    border: 1px solid #999999;
+}
+QToolBox::tab {
+    background: #2791FF;
+    border: 1px solid #999999;
+    border-radius: 1px;
+}
+QToolBox::tab:hover {
+    background-color: #B01B8AFF;
+    border-color: transparent;
+}
+QToolBox::tab:pressed {
+    background-color: #59F;
+    border-color: transparent;
+}
+QToolBox::tab:selected {
+    font-weight: bold;
+    border-color: #B01B8AFF;
+}
+
+/* =============================================== */
+/* TabWidget                                       */
+/* =============================================== */
+QTabWidget{
+    margin-top:10px;
+}
+QTabWidget::pane{
+    border: 1px solid #999999;
+}
+QTabWidget::tab-bar {
+    left: 0px;
+}
+QTabBar::tab {
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    padding: 3px 5px;    
+}
+QTabBar::tab:hover {
+    background: #B01B8AFF;
+    border-color: transparent;
+}
+QTabBar::tab:selected {
+    background: #B01B8AFF;
+    border-color: #59F;
+}
+QTabBar::tab:pressed {
+    background: #59F;
+    border-color: transparent;
+}
+QTabBar::tab:focus {
+    border-color: #EA2;
+}
+QTabBar::tab:top{
+    margin-top: 3px;
+    border-bottom: transparent;
+    margin-right: 1px;
+}
+QTabBar::tab:bottom{
+    margin-bottom: 3px;
+    border-top: transparent;
+    margin-right: 1px;
+}
+QTabBar::tab:left{
+    border-right: transparent;
+    margin-bottom: 1px;
+}
+QTabBar::tab:right{
+    border-left: transparent;
+    margin-bottom: 1px;
+}
+
+/* =============================================== */
+/* QHeaderView for list table                      */
+/* =============================================== */
+QHeaderView {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+QHeaderView::section, QTableCornerButton::section {/*设置表头属性*//*左上角*/
+	background-color: #2791FF;
+	padding: 0 3px;
+	border-right: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-radius: 0px;
+}
+QHeaderView::section:hover, QTableCornerButton::section:hover{
+    background-color: #B01B8AFF;
+}
+QHeaderView::section:pressed{
+    background-color: #59F;
+}
+QHeaderView::section:checked {
+    background-color: #EA2;
+}
+
+/* =============================================== */
+/* QTableWidget                                    */
+/* =============================================== */
+QTableWidget, QTableView
+{
+    gridline-color: #999999;    /*表格中的网格线条颜色*/
+    background: #FFFFFF;
+    /*设置交替颜色，需要在函数属性中设置:tableWidget-&gt;setAlternatingRowColors(true)*/
+    alternate-background-color: #2791FF;
+    /*selection-color:#FFFFFF;    鼠标选中时前景色：文字颜色*/
+    selection-background-color:#B01B8AFF;   /*鼠标选中时背景色*/
+    border:1px solid #999999;  /*边框线的宽度、颜色*/
+    /*border:none;    去除边界线*/
+    /*border-radius:5px;*/
+    /*padding:10px 10px;*/  /*表格与边框的间距*/
+}
+QTableView::item, QTabWidget::item{
+    background: transparent;
+	outline-style: none;
+	border: none;
+}
+
+QTableView::item:hover {
+	background: #B01B8AFF;
+    border: 1px solid #EA2;
+}
+
+QTableView::item:selected {
+	background: #B01B8AFF;
+	color: #2791FF;
+}
+
+QTableView::item:selected:active {
+	background: #59F;
+	color: #2791FF;
+}
+
+QTableWidget QComboBox{
+    margin: 2px;
+    border: none;
+}
+
+ </string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,4">
     <item>
      <layout class="QGridLayout" name="gridLayout_9">
       <item row="0" column="0">
@@ -26,13 +617,13 @@
          </size>
         </property>
         <property name="title">
-         <string>网络设置</string>
+         <string>Netz_einstellen</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_5">
          <item row="0" column="0">
           <widget class="QLabel" name="prot_lb">
            <property name="text">
-            <string>1.协议类型</string>
+            <string>1.Protokolsart</string>
            </property>
           </widget>
          </item>
@@ -64,7 +655,7 @@
          <item row="2" column="0">
           <widget class="QLabel" name="localip_lb">
            <property name="text">
-            <string>2.本地IP地址</string>
+            <string>2.Lokal IP Address</string>
            </property>
           </widget>
          </item>
@@ -78,7 +669,7 @@
          <item row="4" column="0">
           <widget class="QLabel" name="localport_lb">
            <property name="text">
-            <string>3.本地端口号</string>
+            <string>3.Lokal Portnummer</string>
            </property>
            <property name="openExternalLinks">
             <bool>false</bool>
@@ -95,14 +686,14 @@
          <item row="6" column="0">
           <widget class="QPushButton" name="open_btn">
            <property name="text">
-            <string>开始监听</string>
+            <string>Hören</string>
            </property>
           </widget>
          </item>
          <item row="6" column="1">
           <widget class="QPushButton" name="close_btn">
            <property name="text">
-            <string>断开</string>
+            <string>Trenen</string>
            </property>
           </widget>
          </item>
@@ -118,55 +709,58 @@
          </size>
         </property>
         <property name="title">
-         <string>接收区设置</string>
+         <string>Empfangsbereichseinstellungen</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
          <item row="0" column="0" colspan="2">
           <widget class="QCheckBox" name="recv2file">
            <property name="text">
-            <string>保存数据到文件</string>
+            <string>Daten in Datei speichern</string>
            </property>
           </widget>
          </item>
          <item row="1" column="0" colspan="2">
           <widget class="QCheckBox" name="newline">
            <property name="text">
-            <string>自动换行显示</string>
+            <string>Word wrap</string>
            </property>
           </widget>
          </item>
          <item row="2" column="0" colspan="2">
           <widget class="QCheckBox" name="timestamp">
            <property name="text">
-            <string>显示接收时间</string>
+            <string>Empfangszeit anzeigen</string>
            </property>
           </widget>
          </item>
          <item row="4" column="0">
           <widget class="QCheckBox" name="stopdsp">
            <property name="text">
-            <string>暂停显示</string>
+            <string>Stoppen</string>
            </property>
           </widget>
          </item>
          <item row="5" column="0">
           <widget class="QPushButton" name="save_btn">
            <property name="text">
-            <string>保存数据</string>
+            <string>Datei speichern</string>
            </property>
           </widget>
          </item>
          <item row="3" column="0" colspan="2">
           <widget class="QCheckBox" name="hex_recv">
            <property name="text">
-            <string>16进制显示</string>
+            <string>Hexadezimale Anzeige</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item row="5" column="1">
           <widget class="QPushButton" name="clr_btn">
            <property name="text">
-            <string>清空显示</string>
+            <string>Anzeige löschen</string>
            </property>
           </widget>
          </item>
@@ -182,13 +776,16 @@
          </size>
         </property>
         <property name="title">
-         <string>发送设置</string>
+         <string>Einstellungen senden</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
          <item row="4" column="0">
           <widget class="QCheckBox" name="Sendloop">
            <property name="text">
-            <string>周期发送</string>
+            <string>Period Senden(TCP)</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -202,47 +799,51 @@
          <item row="2" column="0" colspan="3">
           <widget class="QCheckBox" name="Sendclear">
            <property name="text">
-            <string>发送完自动清空</string>
+            <string>Nach Senden löschen</string>
            </property>
           </widget>
          </item>
          <item row="1" column="0" colspan="3">
           <widget class="QCheckBox" name="Sendcheck">
            <property name="text">
-            <string>自动发送附加位</string>
+            <string>Zusätzliche Bits senden</string>
            </property>
           </widget>
          </item>
          <item row="5" column="0" colspan="2">
           <widget class="QPushButton" name="file_send_btn">
            <property name="text">
-            <string>发送文件</string>
+            <string>File Senden</string>
            </property>
           </widget>
          </item>
          <item row="3" column="0" colspan="3">
           <widget class="QCheckBox" name="hex_send">
            <property name="text">
-            <string>16进制发送</string>
+            <string>Hexadezimales Senden</string>
            </property>
           </widget>
          </item>
          <item row="5" column="2" colspan="2">
           <widget class="QPushButton" name="clr_btn2">
            <property name="text">
-            <string>清空显示</string>
+            <string>klar</string>
            </property>
           </widget>
          </item>
          <item row="0" column="0" colspan="2">
           <widget class="QCheckBox" name="file_load">
            <property name="text">
-            <string>载入文件</string>
+            <string>Lade Datei</string>
            </property>
           </widget>
          </item>
          <item row="4" column="2">
-          <widget class="QLineEdit" name="loopinterval"/>
+          <widget class="QLineEdit" name="loopinterval">
+           <property name="text">
+            <string>500</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -266,17 +867,30 @@
          </size>
         </property>
         <property name="title">
-         <string>数据发送</string>
+         <string>Datenübertragung</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="4,1,1,1,1">
            <item>
             <widget class="QTextBrowser" name="DataSendtext">
              <property name="readOnly">
               <bool>false</bool>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <widget class="QPushButton" name="send_Btn">
@@ -287,7 +901,33 @@
               </sizepolicy>
              </property>
              <property name="text">
-              <string>发送</string>
+              <string>Senden</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="plotButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Plot &amp; Analyse</string>
              </property>
             </widget>
            </item>
@@ -311,41 +951,9 @@
          </size>
         </property>
         <property name="title">
-         <string>网络数据接收</string>
+         <string>Netzwerkdatenempfang</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="4" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLabel" name="remoteip_lbl">
-               <property name="text">
-                <string>远程IP</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="remoteip_text"/>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QLabel" name="remoteport_lbl">
-               <property name="text">
-                <string>端口号</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="remoteport_text"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
+        <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0">
          <item row="2" column="0">
           <widget class="QTextBrowser" name="DataRecvtext">
            <property name="sizePolicy">
@@ -359,12 +967,44 @@
            </property>
           </widget>
          </item>
+         <item row="4" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="remoteip_lbl">
+               <property name="text">
+                <string>Remote IP</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="remoteip_text"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="remoteport_lbl">
+               <property name="text">
+                <string>Portnummer</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="remoteport_text"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
          <item row="3" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
             <widget class="QLabel" name="clients_lbl">
              <property name="text">
-              <string>客户端:</string>
+              <string>Klient</string>
              </property>
             </widget>
            </item>
@@ -413,8 +1053,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>2006</width>
-     <height>23</height>
+     <width>1137</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2019/1/4 20:25
-# @Author  : SeniorZhu1994
+# @Time    :
+# @Author  :
 # @Site    :
 # @File    : main.py.py
 # @Software: PyCharm
@@ -11,6 +11,7 @@
 import sys
 import tcp_Logic
 import udp_Logic
+import webengine
 import tcp_udp_ui
 import PyQt5.sip
 from PyQt5 import QtWidgets, QtCore
@@ -19,7 +20,10 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QSizePolicy, \
 from netAssitui import Ui_NetAssist
 # from QCandyUi import CandyWindow
 # import qdarkstyle
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QTimer, QFile
+
+from PySide2 import QtCore, QtGui, QtWidgets
+from PySide2.QtUiTools import QUiLoader
 
 import os
 
@@ -28,6 +32,15 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
                       udp_Logic.UdpLogic, tcp_udp_ui.Tcp_ucpUi, Ui_NetAssist):
     def __init__(self):
         # Python3中的继承只用一个super()就可以了，继承后初始化父类的属性
+
+        # qfile_stats = QFile("netAssitui.ui")
+        # qfile_stats.open(QFile.ReadOnly)
+        # qfile_stats.close()
+        # self.ui = QUiLoader().load * (qfile_stats)
+
+
+        # Ui_NetAssist
+        # setupUi
         super(PyQt5_Netassist, self).__init__()
         self.setupUi(self)
         self.path = None
@@ -266,9 +279,6 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
 
 
 
-
-
-
     def datasave2file(self):
         '''
         将接收框中的消息保存到文件
@@ -331,16 +341,21 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    myWin = PyQt5_Netassist()
+    # app = QApplication(sys.argv)
+    # myWin = PyQt5_Netassist()
     # 添加界面美化QCandyUI
     # myWin = CandyWindow.createWindow(myWin, 'blueGreen')
     # 如下是把翻译文件切换为中文
-    translator = QtCore.QTranslator()
-    translator.load("widgets_zh_CN.qm")
-    app.installTranslator(translator)
+    # translator = QtCore.QTranslator()
+    # translator.load("widgets_zh_CN.qm")
+    # app.installTranslator(translator)
     # app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+    loader = QUiLoader()
 
+    app = QtWidgets.QApplication(sys.argv)
+    window = loader.load("netAssitui.ui", None)
+    window.show()
+    app.exec_()
 
-    myWin.show()
+    # myWin.show()
     sys.exit(app.exec_())
