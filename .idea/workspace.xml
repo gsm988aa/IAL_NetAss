@@ -117,8 +117,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.webengine" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
