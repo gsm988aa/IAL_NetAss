@@ -11,13 +11,14 @@
 import sys
 import tcp_Logic
 import udp_Logic
-import webengine
+# import webengine
 import tcp_udp_ui
 import PyQt5.sip
-from PyQt5 import QtWidgets, QtCore
+from PySide2 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QSizePolicy, \
     QLabel, QPushButton, QFileDialog, QMessageBox
 from netAssitui import Ui_NetAssist
+from webengine import Child
 # from QCandyUi import CandyWindow
 # import qdarkstyle
 from PyQt5.QtCore import QTimer, QFile
@@ -33,14 +34,6 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
     def __init__(self):
         # Python3中的继承只用一个super()就可以了，继承后初始化父类的属性
 
-        # qfile_stats = QFile("netAssitui.ui")
-        # qfile_stats.open(QFile.ReadOnly)
-        # qfile_stats.close()
-        # self.ui = QUiLoader().load * (qfile_stats)
-
-
-        # Ui_NetAssist
-        # setupUi
         super(PyQt5_Netassist, self).__init__()
         self.setupUi(self)
         self.path = None
@@ -56,6 +49,11 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
         self.open_btn.setToolTip("Verbindung öffnen")
 
     def init(self):
+
+        #
+        # #添加webengine
+        # self.plotButton.clicked.connect(self.show_ialweb)
+
         # 打印选择的协议类型编号
         self.prot_box.currentTextChanged.connect(self.proto_imf)
         # 对open_btn按下进行判断：TCPserver or TCPClient
@@ -80,6 +78,7 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
         self.Sendloop.toggled.connect(self.checktimer)
         # 发送校验位选择
         self.Sendcheck.toggled.connect(self.checksend_choose)
+
 
     def init_statusbar(self):
         # 设置statusbar所有控件自动延伸
@@ -339,7 +338,28 @@ class PyQt5_Netassist(QMainWindow, tcp_Logic.TcpLogic,
         else:
             event.ignore()
 
+    # def show_ialweb(self):
+    #     # import os
+    #     os._exit(0)
+    #     # print(p)
+    #     # os.system('dir')
 
+
+# class Child(QMainWindow,Ui_Child):
+#   def __init__(self):
+#     super(Child, self).__init__()
+#     self.setupUi(self)
+#     self.pushButton.clicked.connect(self.close)
+#   def OPEN(self):
+#     self.show()
+
+    # if __name__ == "__main__":
+    #     app = QApplication(sys.argv)
+    #     main = Main()
+    #     ch = Child()
+    #     main.show()
+    #     main.pushButton.clicked.connect(ch.OPEN)
+    #     sys.exit(app.exec_())
 if __name__ == "__main__":
     # app = QApplication(sys.argv)
     # myWin = PyQt5_Netassist()
@@ -354,8 +374,15 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     window = loader.load("netAssitui.ui", None)
+    # window.show()
+    # app.exec_()
+    # app = QApplication(sys.argv)
+    # main = Ui_NetAssist()
+    ch = Child()
     window.show()
-    app.exec_()
+    window.plotButton.clicked.connect(ch.OPEN)
+    window.send_Btn.clicked.connect(PyQt5_Netassist.)
+
 
     # myWin.show()
     sys.exit(app.exec_())

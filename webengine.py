@@ -1,14 +1,20 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtWebEngine import *
+from PySide2.QtCore import *
+from PySide2.QtWebEngineWidgets import QWebEngineView
+from PySide2.QtWidgets import *
+from PySide2.QtGui import *
+from PySide2.QtWebEngine import *
 import sys
 import os
+# class Child(QMainWindow,Ui_Child):
+class Child(QMainWindow):
+    # def __init__(self):
 
-class MainWindow(QMainWindow):
     def __init__(self):
-        QMainWindow.__init__(self)
+        super(Child, self).__init__()
+        # self.setupUi(self)
+        # self.plotButton.clicked.connect(self.close)
+        #
+        # QMainWindow.__init__(self)
         self.mainfolder = os.path.dirname(__file__)
         self.img_folder = os.path.join(self.mainfolder, "icons")
         self.setWindowTitle("PyBrowser")
@@ -91,12 +97,15 @@ class MainWindow(QMainWindow):
             print(e)
 
     def home_clicked(self):
-        self.browser.load(QUrl("http://www.google.com/"))
+        self.browser.load(QUrl("https://ial2020ganmessen.github.io/messen/"))
         self.browser.show()
+
+    def OPEN(self):
+        self.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    mainWin =MainWindow()
+    mainWin =Child()
     mainWin.show()
     sys.exit(app.exec_())
 

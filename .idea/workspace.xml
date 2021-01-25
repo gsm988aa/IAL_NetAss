@@ -19,15 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b504aec-adf6-4c9d-a9f1-38c267b6036c" name="Default" comment="TCPClientw针对服务器主动断开的异常处理">
-      <change afterPath="$PROJECT_DIR$/webengine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/netAssist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/netAssist.iml" afterDir="false" />
+    <list default="true" id="8b504aec-adf6-4c9d-a9f1-38c267b6036c" name="Default" comment="add webengine">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/netAssitui.py" beforeDir="false" afterPath="$PROJECT_DIR$/netAssitui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/netAssitui.ui" beforeDir="false" afterPath="$PROJECT_DIR$/netAssitui.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widgets_zh_CN.qm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webengine.py" beforeDir="false" afterPath="$PROJECT_DIR$/webengine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +54,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/webengine.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -117,8 +117,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.webengine" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.webengine" />
     </list>
     <recent_temporary>
       <list>
@@ -159,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575707290611</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add webengine">
+      <created>1611514263092</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611514263092</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -188,7 +195,8 @@
     <MESSAGE value=".idea" />
     <MESSAGE value="界面显示bug修复，美化&#10;1.修复选择协议后，界面显示不符合当前协议特性&#10;2.将退出提示对话框标题改为“NetAssist”&#10;3.按钮美化" />
     <MESSAGE value="TCPClientw针对服务器主动断开的异常处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="TCPClientw针对服务器主动断开的异常处理" />
+    <MESSAGE value="add webengine" />
+    <option name="LAST_COMMIT_MESSAGE" value="add webengine" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611320187460">
@@ -199,26 +207,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="305" width="440" height="460" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611320185687" />
-    <state width="1281" height="153" key="GridCell.Tab.0.bottom" timestamp="1611514155434">
+    <state width="1899" height="154" key="GridCell.Tab.0.bottom" timestamp="1611519555571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611514155434" />
-    <state width="1281" height="153" key="GridCell.Tab.0.center" timestamp="1611514155434">
+    <state width="1899" height="154" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611519555571" />
+    <state width="1899" height="154" key="GridCell.Tab.0.center" timestamp="1611519555571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="153" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611514155434" />
-    <state width="1281" height="153" key="GridCell.Tab.0.left" timestamp="1611514155434">
+    <state width="1899" height="154" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611519555571" />
+    <state width="1899" height="154" key="GridCell.Tab.0.left" timestamp="1611519555571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="153" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611514155434" />
-    <state width="1281" height="153" key="GridCell.Tab.0.right" timestamp="1611514155434">
+    <state width="1899" height="154" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611519555571" />
+    <state width="1899" height="154" key="GridCell.Tab.0.right" timestamp="1611519555571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1281" height="153" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611514155434" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1611320267935">
+    <state width="1899" height="154" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611519555571" />
+    <state x="623" y="150" key="SettingsEditor" timestamp="1611514449766">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611320267935" />
+    <state x="623" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1611514449766" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1611514267502">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611514267502" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611519112520">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611519112520" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -227,11 +243,6 @@
           <url>file://$PROJECT_DIR$/tcp_Logic.py</url>
           <line>251</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tcp_Logic.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
